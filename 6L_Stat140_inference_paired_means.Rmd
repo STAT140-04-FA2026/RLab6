@@ -1,0 +1,66 @@
+---
+title: 'R Lab 6: Inference for Paired Means'
+author: "YOUR NAME HERE"
+date: "Fall 2026"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(openintro)
+library(ggplot2)
+```
+
+## Global Warming (Adapted from Problem 7.19 in OpenIntro, 4th Edition)
+
+To determine whether there is evidence of a rise in global temperatures, we are going to examine temperature differences in 1948 vs 2018. 197 locations from the National Oceanic and Atmospheric Administration's (NOAA) historical data were sampled; these locations have data available for both 1948 and 2018. We want to determine if there were more days with temperatures exceeding 90 degrees Fahrenheit in 1948 or 2018. The difference in number of days exceeding 90 degrees Fahrenheit (number of days in 2018 - number of days in 1948) was calculated for each of the 197 locations. The average if these differences was 2.9 days with a standard deviation of 17.2 days. We are interested in determining whether these data provide strong evidence that there is a difference in the number of days in 2018 that exceeded 90 degrees Fahrenheit vs 1948 from NOAA's weather stations. 
+
+The data for these 197 locations are loaded with the openintro package; the name of the data set is climate70.
+
+## Reading in the data and exploratory analyses
+
+```{r}
+## Print first 6 rows of data set
+head(climate70)
+
+## Use help function to understand variables
+?climate70
+```
+
+**Exercise 1.** Based on the information in the help documentation (?climate70), which two variables contain the information we need, namely number of days above 90 degrees in 1948 and number of days above 90 degrees in 2018?
+
+**Answer.** 
+
+**Exercise 2.** Make a scatterplot for the two variables you identified in Exercise 1. Add layers to your ggplot code that changes the names of the x and y axes. This can be accomplished using xlab("Number of days above 90 degrees in 1948") and ylab("Number of days above 90 degrees in 2018"). Recall layers are connected using plus signs in ggplot.
+
+```{r}
+## Answer:
+
+```
+
+
+To do a paired test, we need to calculate the difference between number of days in 2018 above 90 degrees and the number of days in 1948 above 90 degrees and create a new column in our data set. The following code will create that new column:
+
+```{r}
+climate70$dx90_diff <- climate70$dx90_2018 - climate70$dx90_1948
+```
+
+**Exercise 3.** Create a histogram for the difference between number of days in 2018 above 90 degrees and the number of days in 1948 above 90 degrees using ggplot. Include an informative label on the x-axis using the xlab() layer from Exercise 2 (but with different text!).
+
+```{r}
+## Answer:
+
+```
+
+**Exercise 4.** Calculate the test statistic and find the p-value for the hypothesis test you performed on the Practice Problems (Inference Practice for Means and Proportions). You will need to find the sample mean $\bar{x}$ (use mean() function), sample standard deviation $s$ (use sd() function), and the sample size $n$ (use nrow()) function. You can look at our class notes for an example. You will also need to identify $\mu_0$, the hypothesized value for the mean difference.
+
+When you are checking your work, remember that a p-value must be between 0 and 1.
+
+```{r}
+## Answer:
+
+```
+**Exercise 5.** At a cutoff of 0.05, is there evidence that there is a difference in the number of days above 90 degrees in 2018 versus 1948?
+
+**Answer:** 
